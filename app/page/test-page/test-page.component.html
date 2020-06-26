@@ -1,0 +1,18 @@
+<form class="example-form" [formGroup]="formTodo">
+  <app-auto-complete [myControl]="myControl"
+                     [parentModel]="todo.priority"
+                     (addElement)="setPriority($event)"
+                     [arrayPromise]="prioritiesPromise"
+                     [required]="true"
+                     [filterFn]="callBackFilterFn"
+                     [filterMap]="callBackMapFn"
+                     [displayFn]="callBackDisplayFn"
+                     [placeholder]="'choisir une priorité'"
+                     [dialogComponentName]="'PriorityCreateComponent'"
+                     [creationAllowed]="true"
+                     [callBackDialogFn]="callBackDialogFn"
+                     [pipeAttributeOrderBy]="'value'"
+  ></app-auto-complete>
+  <br>
+  <button type="button" [disabled]="formTodo.invalid" (click)="go()">Envoyer</button>
+</form>

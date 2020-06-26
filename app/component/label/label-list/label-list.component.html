@@ -1,0 +1,10 @@
+<div *ngIf="loading">
+  <mat-spinner [diameter]="70"></mat-spinner>
+</div>
+<div *ngIf="!loading" style="color: white;">
+  <div *ngFor="let label of labels">
+    {{ label.id }} -- {{ label.title }}
+    <button [routerLink]="['/label/edit', label.id]">modifier</button>
+    <button (click)="deleteLabel(label.id)">delete</button>
+  </div>
+</div>

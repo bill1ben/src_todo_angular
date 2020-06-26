@@ -1,0 +1,67 @@
+.todo-list{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.todo-list.loading{
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.todo-list .todo-card {
+  max-width: 200px;
+  margin-right: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.todo-list .todo-card .priority-card {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-family: monospace;
+  padding: 5px 10px;
+  background: #9e9fe0;
+  box-shadow: -2px 2px 2px #9a9a9a;
+  font-size: 0.7em;
+  color: white;
+}
+.todo-list .todo-card .comment-card {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 40px;
+  justify-content: space-between;
+  align-items: center;
+  height: 25px;
+  position: relative;
+  left: -15px;
+  padding: 5px 10px;
+  top: -15px;
+}
+.todo-list .todo-card .id-card {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  font-size: 10px;
+}
+.todo-list .todo-card mat-card-subtitle span{
+margin-right: 10px;
+}
+.add-todo {
+  position: absolute;
+  z-index: 99;
+  padding: 20px;
+  right: 0;
+  bottom: 0;
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+}
+.add-todo .mat-icon {
+  font-size: 65px;
+  color: #4345da;
+}
+
+.todo-spinner {
+  font-size: 10px;
+}

@@ -1,0 +1,50 @@
+<div *ngIf="loading">
+  <mat-spinner [diameter]="70"></mat-spinner>
+</div>
+<div *ngIf="!loading">
+  <form [formGroup]="todoForm" style="background: white; color: black; display: flex; flex-flow: column nowrap;">
+    <h2 class="form-title">Formulaire Todo</h2>
+    <mat-form-field>
+      <mat-select placeholder="selectionner une priorité"
+                  formControlName="priority">
+        <mat-option *ngFor="let priority of priorities" [value]="priority.id">
+          {{priority.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text"
+             placeholder="title"
+             autocomplete="Off"
+             formControlName="title"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput type="text"
+                placeholder="description"
+                autocomplete="Off"
+                formControlName="description"
+      ></textarea>
+    </mat-form-field>
+    <mat-checkbox formControlName="done">
+      <span *ngIf="!todo.done">En attente</span>
+      <span *ngIf="todo.done">Réalisée</span>
+    </mat-checkbox>
+    <mat-divider></mat-divider>
+    <div formArrayName="labels" *ngFor="let formControlLabel of todoForm.controls.labels.controls; let i = index">
+      <mat-checkbox [formControlName]="i">
+        {{ labels[i].title }}
+      </mat-checkbox>
+    </div>
+
+    <div>
+      <button mat-flat-button
+              [disabled]="todoForm.invalid"
+              (click)="save()"
+              color="primary"
+      >
+        Envoyer
+      </button>
+    </div>
+  </form>
+</div>

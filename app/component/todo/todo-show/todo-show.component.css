@@ -1,0 +1,14 @@
+.todo-card {
+  min-width: 200px;
+}
+.todo-card .priority-card {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-family: monospace;
+  padding: 5px 10px;
+  background: #9e9fe0;
+  box-shadow: -2px 2px 2px #9a9a9a;
+  font-size: 0.7em;
+  color: white;
+}

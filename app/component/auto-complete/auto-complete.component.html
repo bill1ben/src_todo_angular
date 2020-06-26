@@ -1,0 +1,25 @@
+<mat-form-field>
+  <input
+    type="text"
+    placeholder="{{ placeholder }}"
+    matInput
+    [required]="required"
+    [(ngModel)]="parentModel"
+    [formControl]="myControl"
+    [matAutocomplete]="auto"
+    (ngModelChange)="sendToParent()"
+    (keyup)="reset()"
+  />
+  <div *ngIf="loading" style="position:absolute; top: 7px; right: 0;">
+    <mat-spinner [diameter]="20"></mat-spinner>
+  </div>
+
+</mat-form-field>
+<button  *ngIf="createButton && buttonAppears" (click)="openModal()">Test</button>
+<mat-autocomplete #auto="matAutocomplete"
+                  [displayWith]="displayFn"
+>
+  <mat-option *ngFor="let option of (filteredElements | async )" [value]="option">
+    {{ displayFn(option) }}
+  </mat-option>
+</mat-autocomplete>

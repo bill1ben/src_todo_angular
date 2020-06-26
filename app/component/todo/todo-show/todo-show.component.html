@@ -1,0 +1,29 @@
+<mat-card
+    class="todo-card"
+    id="todo-card-id-{{todo.id}}" >
+    <span class="priority-card">{{ todo.priority.name }}</span>
+    <mat-card-header>
+      <mat-card-title>{{ todo.title }}</mat-card-title>
+      <mat-card-subtitle *ngIf="todo.labels.length > 0">
+        <div *ngFor="let label of todo.labels">{{ label.title }}</div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="todo.urlimage"
+         mat-card-image src="{{ todo.urlimage.url }}">
+    <mat-card-content>
+      <p>{{ todo.description }}</p>
+      <mat-list>
+        <mat-list-item *ngFor="let comment of todo.comments">
+          <p>{{ comment.content }}</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+    <span class="id-card">id : {{ todo.id }}</span>
+    <mat-spinner [diameter]="25" *ngIf="todo.loading"></mat-spinner>
+    <mat-checkbox [disabled]="isNotConnected()"  *ngIf="!todo.loading" [(ngModel)]="todo.done" (change)="switchDone(todo)">
+      <span *ngIf="!todo.done">En attente</span>
+      <span *ngIf="todo.done">Réalisée</span>
+    </mat-checkbox>
+</mat-card>

@@ -1,0 +1,10 @@
+<div *ngIf="loading">
+  <mat-spinner [diameter]="70"></mat-spinner>
+</div>
+<div *ngIf="!loading" style="color: white;">
+  <div *ngFor="let priority of priorities | orderBy:'value'">
+    {{ priority.id }} -- {{ priority.name }} -- {{ priority.value }}
+    <button [routerLink]="['/priority/edit', priority.id]">modifier</button>
+    <button (click)="deletePriority(priority.id)">delete</button>
+  </div>
+</div>

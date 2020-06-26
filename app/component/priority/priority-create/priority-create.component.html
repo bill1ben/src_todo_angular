@@ -1,0 +1,26 @@
+<form [formGroup]="priorityForm" style="background: white;">
+  <h2 class="form-title">Formulaire Priority</h2>
+  <mat-form-field>
+    <input matInput type="text"
+           placeholder="name"
+           autocomplete="Off"
+           formControlName="name"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number"
+           placeholder="value"
+           autocomplete="Off"
+           formControlName="value"
+    />
+  </mat-form-field>
+  <div>
+    <button mat-flat-button
+            [disabled]="priorityForm.invalid"
+            (click)="save()"
+            color="primary"
+    >
+      Envoyer
+    </button>
+  </div>
+</form>
